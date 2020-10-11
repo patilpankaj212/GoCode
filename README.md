@@ -1,0 +1,3 @@
+# GoCode
+
+Go in practice
