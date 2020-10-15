@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 /*
 if a number is divisible by 3 then print 'fizz'
@@ -14,18 +17,19 @@ func main() {
 	var number int
 	fmt.Scanf("%d", &number)
 
-	fizzbuzz(number)
+	value := fizzbuzz(number)
+	fmt.Println(value)
 }
 
-func fizzbuzz(n int) {
+func fizzbuzz(n int) string {
 
 	if n%5 == 0 && n%3 == 0 {
-		fmt.Println("fizzbuzz")
+		return "fizzbuzz"
 	} else if n%5 == 0 {
-		fmt.Println("buzz")
+		return "buzz"
 	} else if n%3 == 0 {
-		fmt.Println("fizz")
+		return "fizz"
 	} else {
-		fmt.Println(n)
+		return strconv.FormatInt(int64(n), 10)
 	}
 }
