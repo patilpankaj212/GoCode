@@ -1,9 +1,40 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 )
+
+type testCase struct {
+	value    int
+	expected string
+}
+
+func TestManyFizzbuzz(t *testing.T) {
+
+	testCases := []testCase{
+		{1, "1"},
+		{3, "fizz"},
+		{5, "buzz"},
+		{8, "8"},
+		{15, "fizzbuzz"},
+		{17, "17"},
+		{300, "fizzbuzz"},
+		{93, "fizz"},
+		{50, "buzz"},
+	}
+
+	for _, testCaseValue := range testCases {
+		t.Run(fmt.Sprintf("%d", testCaseValue.value), func(t *testing.T) {
+			actualValue := fizzbuzz(testCaseValue.value)
+			if !strings.EqualFold(actualValue, testCaseValue.expected) {
+				t.Logf("expected %s, but got: %s", testCaseValue.expected, actualValue)
+				t.Fail()
+			}
+		})
+	}
+}
 
 func TestFizzbuzz(t *testing.T) {
 
