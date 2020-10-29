@@ -1,0 +1,9 @@
+applications:
+- name: go-cf_service_test
+  disk_quota: 1G
+  docker:
+    image: patilpankaj212/cf_service_test:v2
+  health-check-type: http
+  health-check-http-endpoint: /healthCheck
+  instances: 1
+  memory: 128M
